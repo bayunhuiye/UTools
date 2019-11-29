@@ -29,7 +29,7 @@
     - ClickFind(当点击下面的Find按钮的时候)
     - SelectionChange(当前选中资源变更的时候)
 
-你可以把在 **{你的unity项目目录}/Packages/Data/UTools** 目录下的 **guidMap.json** 文件提交到你的vsc(svn、git)上，这样其他人就可以不用生成索引就能查找项目里已有资源的引用了
+你可以把在 **{你的unity项目目录}/Packages/Data/UTools** 目录下的 **guidMap.json** 文件提交到你的vcs(svn、git)上，这样其他人就可以不用生成索引就能查找项目里已有资源的引用了
 
 这个工具只会从已生成的索引里查找引用，所以如果在生成GUIDMap之后做的修改是查找不到的，如果需要查找本地的修改结果，需要使用左下角的 [Sync Change](#syncchange) 按钮
 (当然你也可以用Generate GUIDMap来重新建立全部索引)
