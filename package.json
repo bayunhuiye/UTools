@@ -1,0 +1,10 @@
+{
+  "name": "com.maid.utools",
+  "displayName": "UTools",
+  "version": "1.0.0",
+  "unity": "2019.1",
+  "description": "unity utility tools",
+  "dependencies": {
+    "com.maid.utools.utility": "1.0.0"
+  }
+}
