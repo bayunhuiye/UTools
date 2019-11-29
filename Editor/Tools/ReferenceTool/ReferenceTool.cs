@@ -22,7 +22,7 @@ public class ReferenceTool : EditorWindow
     private FindThingType findThingType;
 
     private ReferenceMap guidMap;
-    private GUIDMapGen guidMapGen = new GUIDMapGen();
+    private GUIDMapGen guidMapGen;
     private Object replaceTargetAsset;
     private string replaceTargetString;
     private string rgoption;
@@ -48,16 +48,11 @@ public class ReferenceTool : EditorWindow
         {
             stringFinder = new ReferenceToolString();
         }
-    }
 
-    private void Update()
-    {
-        if (assetRefFinder.working ||
-            builtinCompRefFinder.working ||
-            stringFinder.working
-        )
+        if (guidMapGen == null)
         {
-            Repaint();
+            guidMapGen = new GUIDMapGen();
+            guidMapGen.eventStateChanged = Repaint;
         }
     }
 
@@ -109,7 +104,7 @@ public class ReferenceTool : EditorWindow
             {
                 case WhenShouldFind.ClickFind:
                     break;
-                case WhenShouldFind.SeChanged:
+                case WhenShouldFind.SelectionChange:
                     DoFindAssets();
                     break;
             }
@@ -314,12 +309,12 @@ public class ReferenceTool : EditorWindow
     private void DrawOptionsView()
     {
         EditorGUILayout.BeginVertical("box");
-        GUILayout.BeginHorizontal();
+//        GUILayout.BeginHorizontal();
+//
+//        EditorGUILayout.LabelField("RgOptions:", GUILayout.Width(65f));
+//        rgoption = EditorGUILayout.TextField(rgoption);
 
-        EditorGUILayout.LabelField("RgOptions:", GUILayout.Width(65f));
-        rgoption = EditorGUILayout.TextField(rgoption);
-
-        GUILayout.EndHorizontal();
+//        GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
 
 //            findStringTool =
@@ -328,7 +323,7 @@ public class ReferenceTool : EditorWindow
 //                    GUILayout.Height(16),
 //                    GUILayout.Width(60)
 //                );
-        if (GUILayout.Button("Sync", GUILayout.Height(16)))
+        if (GUILayout.Button("Sync Change", GUILayout.Height(16)))
         {
             EnsureMapExist();
             guidMapGen.SyncChangeLogToMap(guidMap);
@@ -376,7 +371,7 @@ public class ReferenceTool : EditorWindow
             }
         }
 
-        if (GUILayout.Button("GenGUIDMap", GUILayout.Height(16)))
+        if (GUILayout.Button("Generate GUIDMap", GUILayout.Height(16)))
         {
             EnsureMapExist();
             GenMap(guidMapGen, guidMap);
@@ -451,7 +446,7 @@ public class ReferenceTool : EditorWindow
         {
             case ".prefab":
             case ".unity":
-                if (GUILayout.Button("Edit", GUILayout.Height(16)))
+                if (GUILayout.Button("Open", GUILayout.Height(16)))
                 {
                     EditRefer(v);
                 }

@@ -7,5 +7,6 @@ using UnityEngine;
 
 public static class UToolsSetting
 {
-    public static string dataPath => Path.Combine(PathUtil.DataPath, "../local_packages/Datas/UTools");
+    public static string packagePath => Path.Combine(PathUtil.DataPath, "../Packages/com.maid.utools");
+    public static string dataPath => Path.Combine(PathUtil.DataPath, "../Packages/Datas/UTools");
 }

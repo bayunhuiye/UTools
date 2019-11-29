@@ -9,22 +9,21 @@ using Object = UnityEngine.Object;
 [Serializable]
 public abstract class ReferenceToolWork
 {
+    public Action eventStateChanged;
+
     public bool working;
 
-    protected void BeginWork(string workName) => working = true;
+    protected void BeginWork(string workName)
+    {
+        working = true;
+        eventStateChanged?.Invoke();
+    }
 
     protected void EndWork()
     {
         GC.Collect();
         working = false;
-//            StopwatchUtil.Stop();
-    }
-
-    public void WaitForWorkEnd()
-    {
-        while (working)
-        {
-        }
+        eventStateChanged?.Invoke();
     }
 }
 

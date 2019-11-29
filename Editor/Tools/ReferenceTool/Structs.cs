@@ -36,7 +36,7 @@ public enum RefType
 public enum WhenShouldFind
 {
     ClickFind,
-    SeChanged,
+    SelectionChange,
 }
 
 [Serializable]
