@@ -19,15 +19,15 @@
 #### 使用
 1. 点击右下角的GenerateGUIDMap按钮来建立索引，这一步比较耗时，与Unity项目大小成正比，如果Unity项目存放在SSD里，那建立速度很快，8G左右的测试项目大概需要5s
 2. 选择要查询的类型:窗口顶部切页 
-    1. Assets(查找项目里的资源)
-    2. String(查找特定字符串)
-    3. BuiltinComponent(查找内置的脚本引用)
+    - Assets(查找项目里的资源)
+    - String(查找特定字符串)
+    - BuiltinComponent(查找内置的脚本引用)
 3. 设置查找目标:顶部第二行左边的切页
-    1. Selection(查找当前选中的资源)
-    2. Field(查找下面的FindTarget引用的资源)
+    - Selection(查找当前选中的资源)
+    - Field(查找下面的FindTarget引用的资源)
 4. 设置什么时候查找:顶部第二行右边的切页
-    1. ClickFind(当点击下面的Find按钮的时候)
-    2. SelectionChange(当前选中资源变更的时候)
+    - ClickFind(当点击下面的Find按钮的时候)
+    - SelectionChange(当前选中资源变更的时候)
 
 你可以把在 **{你的unity项目目录}/Packages/Data/UTools** 目录下的 **guidMap.json** 文件提交到你的vsc(svn、git)上，这样其他人就可以不用生成索引就能查找项目里已有资源的引用了
 
